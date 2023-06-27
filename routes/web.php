@@ -1,7 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-
+use App\Http\Controllers\historiaController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -13,6 +13,5 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+Route::get('/', function () { return view('inicio');})->name('inicio');
+Route::get('introduccion',[historiaController::class,'ver_intro'])->name('introdiccion');

@@ -1,0 +1,70 @@
+.cont{
+    height:100vh;
+}
+#side{
+    padding-left: 15%;
+    width: 70%;
+    padding-top: 10%;
+}
+#main{
+    padding-top: 4%;
+    padding-left: 5%;
+    width: 90%;
+    height: 95%;
+}
+.form{
+    padding-top: 5%;
+    padding-left: 10%;
+    padding-right: 10%;
+    width: 100%;
+    height: 60vh;
+}
+.form1{
+    padding-top: 5%;
+    padding-left: 10%;
+    padding-right: 10%;
+    width: 100%;
+}
+.texto{
+    background-color: #E9E8E8;
+    display: block;
+    width: 100%;
+    border-radius: 5px;
+    margin-top: 7%;
+    padding: 1%;
+    padding-left: 5%;
+}
+label, .sugerencia{
+    display: block;
+    margin-top: 7%;
+}
+.check{
+    width: 5%;
+}
+
+
+#siguiente{
+    background-color: #E9E8E8;
+    width: 15%;
+    margin-top: 2%;
+    margin-left: 85%;
+    border-radius: 3px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.5) inset;
+    padding: 1%;
+}
+#opt{
+    display: flex;
+    align-items: center;
+    padding: 1%; 
+    box-shadow: 5px 5px 4px rgba(0, 0, 0, 0.3);
+}
+#img{
+    border-radius: 10px;
+    width: 80%;
+    margin-left: 10%;
+    height: 80%;
+    margin-top: 2%;
+}
