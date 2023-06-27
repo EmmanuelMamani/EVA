@@ -14,4 +14,5 @@ use App\Http\Controllers\historiaController;
 */
 
 Route::get('/', function () { return view('inicio');})->name('inicio');
-Route::get('introduccion',[historiaController::class,'ver_intro'])->name('introdiccion');
+Route::get('/introduccion',[historiaController::class,'ver_intro'])->name('introdiccion');
+Route::post('/registrar_historia',[historiaController::class,'registrar'])->name('Registrar_hisotoria');
