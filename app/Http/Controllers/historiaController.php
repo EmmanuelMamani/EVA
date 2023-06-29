@@ -3,6 +3,8 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\historia;
+use ZipArchive;
+
 class historiaController extends Controller
 {
     //
@@ -11,15 +13,27 @@ class historiaController extends Controller
         return view('introduccion',['historia'=>$historia]);
     }
     public function registrar(Request $request){
-        $historia =new historia();
-        $historia->titulo= $request->titulo;
-        $historia->genero= $request->genero;
-        $historia->palabras_claves= $request->palabras_claves;
+       
         $imagen = $request->file('imagen');
-        $imagenBinaria = file_get_contents($imagen);
-        $historia->imagen = $imagenBinaria;
-        $historia->ocurrencia=$request->ocurrencia;
-        $historia->save();
-        return redirect('/introduccion');
+       
+
+        $imagen->storeAs('public/files','imagen.jpg');
+        
+        $zip=new ZipArchive;
+        if($zip->open(public_path($request->titulo.'.zip'),ZipArchive::CREATE)==TRUE){
+            $zip->addFile(storage_path('app/public/imsmanifest.xml'),'imsmanifest.xml');
+            
+            $zip->addEmptyDir('files');
+            $zip->addFile(storage_path('app/public/files/historia.html'),'files/historia.html');
+            $zip->addFile(storage_path('app/public/files/historia.css'),'files/historia.css');
+            
+            $string=$request->palabras_claves.'\n'.$request->ocurrencia;
+            $zip->addFromString('files/palabras.txt',$string);
+
+            $zip->addFile(storage_path('app/public/files/imagen.jpg'),'files/imagen.jpg');
+            $zip->close();
+        }
+       
+        return response()->download(public_path($request->titulo.'.zip'));
     }
 }

@@ -13,10 +13,9 @@
         <div id="side" class="cont shadow-lg shadow-slate-500">
             <ul class="list-disc">
                 <li class="pb-5"><a href="{{route('inicio')}}">Datos generales</a></li>
-                <li class="pb-5"><a href="{{route('introdiccion')}}">Introducción</a></li>
-                <li class="pb-5">Desarrollo</li>
-                <li class="pb-5">Desenlace</li>
-                <li class="pb-5"><a href="previa.html">Vista previa</a></li>
+            
+               
+         
             </ul>
         </div>
         <div id="main" class="col-span-4 cont">
